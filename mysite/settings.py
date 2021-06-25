@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'django.contrib.admin',
+    #admin에 users, groups table이 기본적으로 보였던 이유! 'django.contrib.admin'이 이미 settings.py에 등록되어있었기 때문임!
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
