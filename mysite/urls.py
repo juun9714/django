@@ -18,5 +18,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('polls/', include('polls.urls')),
+    #include()는 다른 URLconf들을 참조할 수 있도록 도와줍니다.
     path('admin/', admin.site.urls),
 ]

@@ -4,6 +4,7 @@ import datetime
 
 class Question(models.Model):
     #two field
+    #장고의 model은 내부적으로 SQL을 사용하여 id field를 생성한다. 
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
