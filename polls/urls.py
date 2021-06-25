@@ -13,6 +13,7 @@ urlpatterns = [
     # ex: /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
 ]
+#<int:question_id> -> url에서 해당 부분이 views.vote의 question_id 인자로 전달된다. 
 
 #Generic view
 # urlpatterns = [

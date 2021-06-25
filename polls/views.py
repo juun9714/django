@@ -29,8 +29,9 @@ def vote(request, question_id):
         #해당 Q를 외래키로 갖는 choice들의 set을 가져오게 됨 
         #detail.html이라는 template에서 post방식으로 전송한 request에서 choice라는 이름을 가진 data의 value값과 해당 Q를 외래키로 갖는 choice들의 pk값이 같은지 확인 
         #detail.html의 form tag의 method='post'
-        # -> template에서 choice라는 id를 갖는 input => radio input type의 value 데이터를 가지고 와라
-        
+        # request.POST는 detail.html에서 제출한 폼의 데이터를 담고 있는 객체 
+        # -> request.POST['choice'] = 객체 중 이름이 choice인 input의 value를 string 형식으로 반환
+        # request.POST 객체에서 choice라는 키가 없으면 -> KeyError !!        
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
         return render(request, 'polls/detail.html', {
@@ -48,7 +49,8 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
         #result view로 redirect하는 로직 
-        #POST와 세트로 자주 사용됨 
+        #POST와 세트로 자주 사용됨, post 역할을 하는 view는 보통 데이터를 처리해주고, 
+        #그 결과를 보여주는 template을 뿌려주는 view를 실행해야하는데, 그러려면 another url로 이동해야하기 때문
         #vote view는 어떤 화면을 갖지는 않고, 투표를 처리해주는 역할만 한다.
 
 #Generic view
