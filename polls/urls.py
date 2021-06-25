@@ -21,5 +21,4 @@ urlpatterns = [
 #     path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
 #     path('<int:question_id>/vote/', views.vote, name='vote'),
 # ]
-
 #pk값을 넘겨주겠거니, 하고 내부적으로 이미 구현이 다 되어 있음

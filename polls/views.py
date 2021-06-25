@@ -7,6 +7,7 @@ from .models import Question, Choice
 from django.views import generic
 
 def index(request):
+    #READ(GET)
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
@@ -21,6 +22,7 @@ def results(request, question_id):
     return render(request, 'polls/results.html', {'question': question})
 
 def vote(request, question_id):
+    #CREAT(POST)
     question = get_object_or_404(Question, pk=question_id)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -39,6 +41,7 @@ def vote(request, question_id):
     else:
         selected_choice.votes += 1
         selected_choice.save()
+        # model객체.save() <- create in CRUD
         # selected_choice : 선택된 선택지 : Choice instance 중 선택된 것 
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
