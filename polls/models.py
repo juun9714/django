@@ -10,6 +10,7 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+        #table의 각 record의 제목이 될 값 반환
 
     def was_published_recently(self):
         return self.pub_date >= TIME_ZONE.now() 
