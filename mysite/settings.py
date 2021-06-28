@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    #이 프로젝트가 polls라는 app을 사용한다는 것을 명시 
     'django.contrib.admin',
     #admin에 users, groups table이 기본적으로 보였던 이유! 'django.contrib.admin'이 이미 settings.py에 등록되어있었기 때문임!
     'django.contrib.auth',
@@ -52,6 +53,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+#url이 들어오면 가장 먼저 들르는 곳이, mysite/urls.py!!
 
 TEMPLATES = [
     {

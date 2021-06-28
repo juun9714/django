@@ -5,6 +5,8 @@ import datetime
 class Question(models.Model):
     #two field
     #장고의 model은 내부적으로 SQL을 사용하여 id field를 생성한다. 
+    #id field의 접근 이름? id
+    #=> id!!
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
@@ -17,6 +19,7 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
+    #역시 id 이름은 id 
     question = models.ForeignKey(Question, on_delete=models.CASCADE)#foreign key, cascade
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
